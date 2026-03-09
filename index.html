@@ -58,7 +58,6 @@
         .flex-row { display: flex; gap: 10px; margin-top: 10px; }
         .info-text { font-size: 12px; color: #555; margin-bottom: 10px; line-height: 1.4; background: #eef; padding: 10px; border-radius: 4px;}
         
-        /* Απλό Πλαίσιο Ασφαλείας Δεδομένων */
         .gdpr-warning { background-color: #f8f9fa; border: 1px solid #ced4da; border-left: 4px solid #6c757d; padding: 12px; margin-top: 10px; margin-bottom: 10px; border-radius: 4px; font-size: 12px; color: #555; display: flex; align-items: center; gap: 10px;}
 
         /* TABS */
@@ -109,7 +108,7 @@
     
     <div class="header-box">
         <h1>⚙️ Προανακριτικη Μηχανη</h1>
-        <p>💻 V 4.0 Ultimate (Cache Fix & Grammar Engine)</p>
+        <p>💻 V 4.0 Ultimate (Clean Core, Ranks & Auto-Save)</p>
     </div>
 
     <div class="ai-settings">
@@ -118,7 +117,7 @@
             <span id="ai_arrow">⬇️ Άνοιγμα</span>
         </div>
         <div id="ai_settings_panel" style="display: none; margin-top: 10px;">
-            <p style="font-size: 12px; color: #666; margin-bottom: 10px;">Επικολλήστε το δωρεάν Gemini API Key σας.</p>
+            <p style="font-size: 12px; color: #666; margin-bottom: 10px;">Επικολλήστε το δωρεάν Gemini API Key σας. Το σύστημα θα βρει αυτόματα τα διαθέσιμα μοντέλα.</p>
             <div style="display: flex; gap: 10px; margin-bottom: 10px;">
                 <input type="password" id="gemini_api_key" placeholder="Επικόλληση κλειδιού (π.χ. AIzaSy...)" style="flex: 2;">
                 <button onclick="saveApiKeyAndFetchModels()" style="background-color: #ff9800; flex: 1;">💾 Σύνδεση</button>
@@ -144,13 +143,25 @@
         <div id="cfg_settings_panel" style="display: none; margin-top: 10px;">
             <p style="font-size: 12px; color: #666; margin-bottom: 10px;">Αν θελήσετε να φτιάξετε δικογραφία για άλλη Υπηρεσία/Περιοχή, απλώς αλλάξτε τα παρακάτω κουτιά. Αν κάτι πάει στραβά, πατήστε το κουμπί Επαναφοράς.</p>
             <div class="grid-form" style="grid-template-columns: repeat(3, 1fr);">
-                <div class="form-group"><label>Τόπος Σύνταξης</label><input type="text" id="cfg_city"></div>
-                <div class="form-group"><label>Τμήμα Σύντομο</label><input type="text" id="cfg_dept"></div>
-                <div class="form-group"><label>Εισαγγελία</label><input type="text" id="cfg_prosecutor"></div>
-                <div class="form-group" style="grid-column: span 3;"><label>Τμήμα Πλήρες</label><input type="text" id="cfg_deptFull"></div>
+                <div class="form-group"><label>Τόπος Σύνταξης</label><input type="text" id="cfg_city" value="Ασπροβάλτα"></div>
+                <div class="form-group"><label>Τμήμα Σύντομο</label><input type="text" id="cfg_dept" value="Α.Τ. Βόλβης"></div>
+                <div class="form-group"><label>Εισαγγελία</label><input type="text" id="cfg_prosecutor" value="Εισαγγελέα Πλημμελειοδικών Θεσσαλονίκης"></div>
+                <div class="form-group" style="grid-column: span 3;"><label>Τμήμα Πλήρες</label><input type="text" id="cfg_deptFull" value="Αστυνομικό Τμήμα Βόλβης Θεσσαλονίκης"></div>
                 <div class="form-group" style="grid-column: span 3;">
                     <label style="color: #d32f2f;">Λίστα Ανακριτικών Υπαλλήλων (Γράψτε τα ονόματα ΑΥΣΤΗΡΑ σε ΓΕΝΙΚΗ πτώση! π.χ. Ανθυπαστυνόμου ΠΑΠΑΔΟΠΟΥΛΟΥ Γεωργίου)</label>
-                    <textarea id="cfg_officers" style="height: 120px; font-size: 13px; padding: 8px; border: 1px solid #ccc; border-radius: 4px;"></textarea>
+                    <textarea id="cfg_officers" style="height: 140px; font-size: 13px; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">Υπαστυνόμου Α΄ ΜΟΥΤΣΑΚΗ Νικολάου
+Ανθυπαστυνόμου ΠΑΝΑΓΙΩΤΙΔΗ Παύλου
+Ανθυπαστυνόμου ΠΑΠΑΔΗΜΗΤΡΙΟΥ
+Ανθυπαστυνόμου ΖΕΥΓΟΛΑΤΑΚΟΥ Παναγιώτη
+Ανθυπαστυνόμου ΤΣΟΛΑΚΗ Θεοδώρου
+Αρχιφύλακα ΑΓΟΡΑΣΤΟΥ Σαλονικιού
+Αρχιφύλακα ΖΙΩΓΑ Κωνσταντίνου
+Αρχιφύλακα ΚΑΡΠΟΥΧΤΣΗ Παναγιώτη
+Αρχιφύλακα ΚΟΥΚΟΥΦΙΚΗ Θεοχάρη
+Αρχιφύλακα ΚΟΥΤΡΑ Δημητρίου
+Αρχιφύλακα ΚΥΡΙΑΖΙΔΗ Ιωάννη
+Αρχιφύλακα ΜΑΛΑΝΔΡΗ Γεωργίου
+Αρχιφύλακα ΤΣΑΡΤΣΑΛΗ Δήμου</textarea>
                 </div>
             </div>
             <div style="display: flex; gap: 10px; margin-top: 10px;">
@@ -280,7 +291,7 @@
             <div class="gdpr-warning">
                 <span style="font-size: 18px;">🛡️</span>
                 <div>
-                    Προστασία Δεδομένων: Το σύστημα αποκρύπτει αυτόματα αριθμούς, Α.Δ.Τ., τηλέφωνα και πινακίδες κυκλοφορίας. Επειδή το πρόγραμμα δεν μπορεί να αναγνωρίσει αυτόματα ονόματα ή τοπωνύμια, αν σκοπεύετε να χρησιμοποιήσετε την Τεχνητή Νοημοσύνη παρακαλούμε αποφύγετε τη χρήση πραγματικών ονοματεπωνύμων στα μεγάλα πλαίσια κειμένου.
+                    Προστασία Δεδομένων: Το σύστημα αποκρύπτει αυτόματα αριθμούς, Α.Δ.Τ., τηλέφωνα και πινακίδες κυκλοφορίας. Το πρόγραμμα δεν μπορεί να αναγνωρίσει αυτόματα ονόματα. Αν σκοπεύετε να χρησιμοποιήσετε τα εργαλεία Τεχνητής Νοημοσύνης (AI), συστήνεται να αποφεύγεται η χρήση πραγματικών ονοματεπωνύμων.
                 </div>
             </div>
 
@@ -365,7 +376,7 @@
                 <div class="gdpr-warning" style="margin-top: 5px; margin-bottom: 10px;">
                     <span style="font-size: 18px;">🛡️</span>
                     <div>
-                        Προστασία Δεδομένων: Αποφύγετε τη χρήση πραγματικών ονομάτων. Γράψτε με αρχικά.
+                        Προστασία Δεδομένων: Συστήνεται να αποφεύγεται η χρήση πραγματικών ονομάτων. Γράψτε με αρχικά.
                     </div>
                 </div>
                 <div style="display: flex; gap: 10px;">
@@ -587,7 +598,8 @@
     // ==========================================
     // ΓΕΝΙΚΕΣ ΡΥΘΜΙΣΕΙΣ (GLOBAL CONFIG)
     // ==========================================
-    const defaultOfficers = "Υπαστυνόμου Α΄ ΜΟΥΤΣΑΚΗ Νικολάου\nΑνθυπαστυνόμου ΖΕΥΓΟΛΑΤΑΚΟΥ Παναγιώτη\nΑνθυπαστυνόμου ΠΑΝΑΓΙΩΤΙΔΗ Παύλου\nΑνθυπαστυνόμου ΠΑΠΑΔΗΜΗΤΡΙΟΥ\nΑνθυπαστυνόμου ΤΣΟΛΑΚΗ Θεοδώρου\nΑρχιφύλακα ΑΓΟΡΑΣΤΟΥ Σαλονικιού\nΑρχιφύλακα ΖΙΩΓΑ Κωνσταντίνου\nΑρχιφύλακα ΚΟΥΚΟΥΦΙΚΗ Θεοχάρη\nΑρχιφύλακα ΚΟΥΤΡΑ Δημητρίου\nΑρχιφύλακα ΚΥΡΙΑΖΙΔΗ Ιωάννη\nΑρχιφύλακα ΜΑΛΑΝΔΡΗ Γεωργίου\nΑρχιφύλακα ΤΣΑΡΤΣΑΛΗ Δήμου";
+    // Η λίστα σε αυστηρή Γενική Πτώση
+    const defaultOfficers = "Υπαστυνόμου Α΄ ΜΟΥΤΣΑΚΗ Νικολάου\nΑνθυπαστυνόμου ΠΑΝΑΓΙΩΤΙΔΗ Παύλου\nΑνθυπαστυνόμου ΠΑΠΑΔΗΜΗΤΡΙΟΥ\nΑνθυπαστυνόμου ΖΕΥΓΟΛΑΤΑΚΟΥ Παναγιώτη\nΑνθυπαστυνόμου ΤΣΟΛΑΚΗ Θεοδώρου\nΑρχιφύλακα ΑΓΟΡΑΣΤΟΥ Σαλονικιού\nΑρχιφύλακα ΖΙΩΓΑ Κωνσταντίνου\nΑρχιφύλακα ΚΑΡΠΟΥΧΤΣΗ Παναγιώτη\nΑρχιφύλακα ΚΟΥΚΟΥΦΙΚΗ Θεοχάρη\nΑρχιφύλακα ΚΟΥΤΡΑ Δημητρίου\nΑρχιφύλακα ΚΥΡΙΑΖΙΔΗ Ιωάννη\nΑρχιφύλακα ΜΑΛΑΝΔΡΗ Γεωργίου\nΑρχιφύλακα ΤΣΑΡΤΣΑΛΗ Δήμου";
 
     function toggleConfig() {
         let panel = document.getElementById("cfg_settings_panel");
@@ -618,7 +630,7 @@
         localStorage.removeItem("cfg_deptFull");
         localStorage.removeItem("cfg_prosecutor");
         localStorage.removeItem("cfg_officers");
-        localStorage.removeItem("mem_doc_anakr"); // Καθαρίζει το λάθος όνομα
+        localStorage.removeItem("mem_doc_anakr"); 
         localStorage.removeItem("mem_doc_banakr");
         loadGlobalSettings();
         alert("Έγινε πλήρης επαναφορά στις αρχικές ρυθμίσεις της Υπηρεσίας!");
@@ -715,7 +727,7 @@
     window.onload = function() {
         refreshTimes();
         buildDVForm();
-        loadGlobalSettings(); // Φορτώνει τα πάντα με ασφάλεια
+        loadGlobalSettings();
 
         // Load Mem
         loadMem("doc_testimony_simple");
@@ -886,7 +898,7 @@
     }
 
     // ==========================================
-    // AI LOGIC (GEMINI API)
+    // AI LOGIC (GEMINI API) & ΑΣΦΑΛΕΙΑ
     // ==========================================
     function sanitizeForAI(text) {
         if(!text) return "";
@@ -1236,7 +1248,7 @@
         let arrDT = (d.v("arr_street_date") ? ` την ${d.v("arr_street_date")}` : ``) + (d.v("arr_street_time") ? ` και περί ώρα ${d.v("arr_street_time")}` : ``);
         let locText = d.v("arr_loc") ? ` ${d.v("arr_loc")}` : ``;
         
-        let sig4 = `<table style="width: 100%; font-family: 'Times New Roman'; font-size: 12pt; text-align: center; margin-top: 20pt; margin-bottom: 0cm; padding: 0cm; background: white; color: black; border: none;" border="0"><tr><td style="width: 25%; vertical-align: top;">${d.v("gender")==='M'?"Ο Συλληφθείς":"Η Συλληφθείσα"}</td><td style="width: 25%; vertical-align: top;">Ο Συλλαβών</td><td style="width: 25%; vertical-align: top;">Ο Β΄ Ανακριτ. Υπάλλ.</td><td style="width: 25%; vertical-align: top;">Ο Ανακριτ. Υπάλληλος</td></tr></table>`;
+        let sig4 = `<p style="${pStyle}">&nbsp;</p><p style="${pStyle}">&nbsp;</p><table style="width: 100%; font-family: 'Times New Roman'; font-size: 12pt; text-align: center; margin-top: 0cm; margin-bottom: 0cm; padding: 0cm; background: white; color: black; border: none;" border="0"><tr><td style="width: 25%; vertical-align: top;">${d.v("gender")==='M'?"Ο Συλληφθείς":"Η Συλληφθείσα"}</td><td style="width: 25%; vertical-align: top;">Ο Συλλαβών</td><td style="width: 25%; vertical-align: top;">Ο Β΄ Ανακριτ. Υπάλλ.</td><td style="width: 25%; vertical-align: top;">Ο Ανακριτ. Υπάλληλος</td></tr></table>`;
         let header = `<p style="text-align: center; font-weight: bold; text-decoration: underline; font-family: 'Times New Roman'; font-size: 14pt; line-height: 115%; margin: 0cm 0cm 6pt 0cm; background: white; color: black;">Ε Κ Θ Ε Σ Η &nbsp;&nbsp;&nbsp; Σ Υ Λ Λ Η Ψ Η Σ</p>`;
 
         let body = `<p style="${pStyle}">Στην ${d.city} σήμερα την ${d.dateStr} και ώρα ${d.v("arr_start")} ενώπιον εμού του ${d.anakr} υπηρετούντος στο ${d.deptFull}, παρισταμένου και του ${d.banakr} της ιδίας Υπηρεσίας, που προσλήφθηκε ως Β΄ Ανακριτικός Υπάλληλος, κατοίκων ομοίως, οδηγήθηκε στο Κατάστημα της Υπηρεσίας μας, ${d.deptFull}, ${d.a_o} ${d.prof}, ${d.v("arr_officer") ? `από τον ${d.v("arr_officer")} που τ${d.a_ton} συνέλαβε` : `που συνελήφθη`}${arrDT}${locText}, ${sentence}.</p>
@@ -1256,7 +1268,7 @@
         <p style="${rp}"><b>Α. Εκ του άρθρου 99 του Κ.Π.Δ., ήτοι παράσταση του κατηγορουμένου με συνήγορο:</b><br>
         <b>1.</b> Ο Κατηγορούμενος έχει το δικαίωμα στην απολογία του και σε κάθε εξέτασή του, ακόμη και σ’ αυτήν που γίνεται σε αντιπαράσταση με μάρτυρες ή άλλους κατηγορούμενους, να παρίσταται με συνήγορο. Γι’ αυτό το σκοπό προσκαλείται 24 ώρες πριν από κάθε ανακριτική ενέργεια.<br>
         <b>2.</b> Επιτρέπεται σύντμηση της προθεσμίας αυτής, αν από την αναβολή δημιουργείται κίνδυνος που η ύπαρξη του βεβαιώνεται ειδικά με έκθεση του ανακριτή ή του ανακριτικού υπαλλήλου.<br>
-        <b>3.</b> Ο ανακριτής έχει την υποχρέωση να διορίζει αυτεπαγγέλτως συνήγορο, αν το ζητήσει ρητά ο κατηγορούμενος. (Εξ αυτού, η Αστυνομική αρχή θα μεριμνήσει για την ανεύρεση συνηγόρου, εφ΄ όσον δεν έχετε και επιθυμείτε να προσλάβετε).<br>
+        <b>3.</b> Ο ανακριτής έχει την υποχρέωση να διορίζει αυτεπαγγέλτως συνήγορο, αν το ζητήσει ρητά ο κατηγορούμενος.<br>
         <b>4.</b> Σε καμία περίπτωση δεν μπορεί να απαγορευθεί η επικοινωνία του κατηγορουμένου με τον συνήγορό του.</p>
         <p style="${rp}"><b>Β. Εκ του άρθρου 100 του Κ.Π.Δ., ήτοι ανακοίνωση των εγγράφων της ανάκρισης:</b><br>
         <b>1.</b> Ο ανακριτής, μόλις μετά την κλήτευσή του εμφανισθεί η οδηγηθεί σ’ αυτόν ο κατηγορούμενος για να απολογηθεί, του ανακοινώνει το περιεχόμενο του κατηγορητηρίου και των άλλων εγγράφων της ανάκρισης. Επιτρέπεται επίσης στον κατηγορούμενο να μελετήσει ο ίδιος ή ο συνήγορός του το κατηγορητήριο και τα έγγραφα της ανάκρισης. Με γραπτή αίτηση του κατηγορουμένου και με δαπάνη του χορηγούνται σ’ αυτόν αντίγραφα του κατηγορητηρίου & των εγγράφων της ανάκρισης.<br>
@@ -1272,7 +1284,7 @@
         <p style="${rp}">Για πίστωση συντάχθηκε η παρούσα έκθεση, η οποία αφού αναγνώσθηκε και βεβαιώθηκε, υπογράφεται ως ακολούθως :</p>
         ${sigBlock(d.v("gender")==='M'?"Ο λαβών γνώση":"Η λαβούσα γνώση", "Ο Β’ Ανακριτικός Υπάλληλος", "Ο Ανακριτικός Υπάλληλος")}`;
         
-        let header = `<p style="text-align: center; font-weight: bold; text-decoration: underline; font-family: 'Times New Roman'; font-size: 14pt; line-height: 115%; margin: 0cm 0cm 6pt 0cm; background: white; color: black;"><u>ΕΚΘΕΣΗ ΕΝΗΜΕΡΩΣΗΣ ΔΙΚΑΙΩΜΑΤΩΝ ΣΕ ΥΠΟΠΤΟ Ή ΚΑΤΗΓΟΡΟΥΜΕΝΟ</u></p>`;
+        let header = `<p style="text-align: center; font-weight: bold; text-decoration: underline; font-family: 'Times New Roman'; font-size: 14pt; line-height: 115%; margin: 0cm 0cm 6pt 0cm; background: white; color: black;">ΕΚΘΕΣΗ ΕΝΗΜΕΡΩΣΗΣ ΔΙΚΑΙΩΜΑΤΩΝ ΣΕ ΥΠΟΠΤΟ Ή ΚΑΤΗΓΟΡΟΥΜΕΝΟ</p>`;
         let fullHtml = `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Δικαιώματα</title><style>body { background: white; color: black; font-family: 'Times New Roman'; }</style></head><body style="background-color: white; color: black;">${header}${body}</body></html>`;
         let blob = new Blob(['\ufeff', fullHtml], { type: 'application/msword' });
         let url = URL.createObjectURL(blob); let link = document.createElement('a'); link.href = url; link.download = `2_ΕΚΘΕΣΗ_ΔΙΚΑΙΩΜΑΤΩΝ_${d.v("surname")}.doc`; 
