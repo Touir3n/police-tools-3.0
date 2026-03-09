@@ -11,6 +11,7 @@
         .header-box h1 { margin: 0; font-size: 26px; letter-spacing: 1px; text-transform: uppercase; }
         .header-box p { margin: 5px 0 0 0; font-size: 14px; opacity: 0.9; color: #ffeb3b; font-weight: bold;}
 
+        /* Κουτιά Ρυθμίσεων */
         .ai-settings { background: #fdfcff; border: 1px solid #ffd54f; border-left: 5px solid #ff9800; padding: 12px; border-radius: 6px; margin-bottom: 5px; }
         .global-settings { background: #f4faeb; border: 1px solid #81c784; border-left: 5px solid #4caf50; padding: 12px; border-radius: 6px; margin-bottom: 5px; }
         
@@ -57,8 +58,10 @@
         .flex-row { display: flex; gap: 10px; margin-top: 10px; }
         .info-text { font-size: 12px; color: #555; margin-bottom: 10px; line-height: 1.4; background: #eef; padding: 10px; border-radius: 4px;}
         
+        /* Απλό Πλαίσιο Ασφαλείας Δεδομένων */
         .gdpr-warning { background-color: #f8f9fa; border: 1px solid #ced4da; border-left: 4px solid #6c757d; padding: 12px; margin-top: 10px; margin-bottom: 10px; border-radius: 4px; font-size: 12px; color: #555; display: flex; align-items: center; gap: 10px;}
 
+        /* TABS */
         .tabs { display: flex; border-bottom: 3px solid #003366; margin-top: 15px; gap: 5px; flex-wrap: wrap; }
         .tab-btn { background: #d9e2ec; color: #333; border: 1px solid #b3cce6; border-bottom: none; padding: 10px 16px; border-radius: 6px 6px 0 0; cursor: pointer; font-size: 13px; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 -2px 4px rgba(0,0,0,0.05);}
         .tab-btn:hover { background: #cce0ff; }
@@ -106,7 +109,7 @@
     
     <div class="header-box">
         <h1>⚙️ Προανακριτικη Μηχανη</h1>
-        <p>💻 V 4.0 Ultimate (Auto-Save, Clean Docs, Stable Config)</p>
+        <p>💻 V 4.0 Ultimate (Cache Fix & Grammar Engine)</p>
     </div>
 
     <div class="ai-settings">
@@ -115,7 +118,7 @@
             <span id="ai_arrow">⬇️ Άνοιγμα</span>
         </div>
         <div id="ai_settings_panel" style="display: none; margin-top: 10px;">
-            <p style="font-size: 12px; color: #666; margin-bottom: 10px;">Επικολλήστε το δωρεάν Gemini API Key σας. Το σύστημα θα βρει αυτόματα τα διαθέσιμα μοντέλα.</p>
+            <p style="font-size: 12px; color: #666; margin-bottom: 10px;">Επικολλήστε το δωρεάν Gemini API Key σας.</p>
             <div style="display: flex; gap: 10px; margin-bottom: 10px;">
                 <input type="password" id="gemini_api_key" placeholder="Επικόλληση κλειδιού (π.χ. AIzaSy...)" style="flex: 2;">
                 <button onclick="saveApiKeyAndFetchModels()" style="background-color: #ff9800; flex: 1;">💾 Σύνδεση</button>
@@ -139,29 +142,21 @@
             <span id="cfg_arrow">⬇️ Άνοιγμα</span>
         </div>
         <div id="cfg_settings_panel" style="display: none; margin-top: 10px;">
-            <p style="font-size: 12px; color: #666; margin-bottom: 10px;">Αν θελήσετε να φτιάξετε δικογραφία για άλλη Υπηρεσία/Περιοχή, απλώς αλλάξτε τα παρακάτω κουτιά. Το σύστημα θα προσαρμοστεί 100%.</p>
+            <p style="font-size: 12px; color: #666; margin-bottom: 10px;">Αν θελήσετε να φτιάξετε δικογραφία για άλλη Υπηρεσία/Περιοχή, απλώς αλλάξτε τα παρακάτω κουτιά. Αν κάτι πάει στραβά, πατήστε το κουμπί Επαναφοράς.</p>
             <div class="grid-form" style="grid-template-columns: repeat(3, 1fr);">
-                <div class="form-group"><label>Τόπος Σύνταξης</label><input type="text" id="cfg_city" value="Ασπροβάλτα"></div>
-                <div class="form-group"><label>Τμήμα Σύντομο</label><input type="text" id="cfg_dept" value="Α.Τ. Βόλβης"></div>
-                <div class="form-group"><label>Εισαγγελία</label><input type="text" id="cfg_prosecutor" value="Εισαγγελέα Πλημμελειοδικών Θεσσαλονίκης"></div>
-                <div class="form-group" style="grid-column: span 3;"><label>Τμήμα Πλήρες</label><input type="text" id="cfg_deptFull" value="Αστυνομικό Τμήμα Βόλβης Θεσσαλονίκης"></div>
+                <div class="form-group"><label>Τόπος Σύνταξης</label><input type="text" id="cfg_city"></div>
+                <div class="form-group"><label>Τμήμα Σύντομο</label><input type="text" id="cfg_dept"></div>
+                <div class="form-group"><label>Εισαγγελία</label><input type="text" id="cfg_prosecutor"></div>
+                <div class="form-group" style="grid-column: span 3;"><label>Τμήμα Πλήρες</label><input type="text" id="cfg_deptFull"></div>
                 <div class="form-group" style="grid-column: span 3;">
                     <label style="color: #d32f2f;">Λίστα Ανακριτικών Υπαλλήλων (Γράψτε τα ονόματα ΑΥΣΤΗΡΑ σε ΓΕΝΙΚΗ πτώση! π.χ. Ανθυπαστυνόμου ΠΑΠΑΔΟΠΟΥΛΟΥ Γεωργίου)</label>
-                    <textarea id="cfg_officers" style="height: 120px; font-size: 13px; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">Υπαστυνόμου Α΄ ΜΟΥΤΣΑΚΗ Νικολάου
-Ανθυπαστυνόμου ΖΕΥΓΟΛΑΤΑΚΟΥ Παναγιώτη
-Ανθυπαστυνόμου ΠΑΝΑΓΙΩΤΙΔΗ Παύλου
-Ανθυπαστυνόμου ΠΑΠΑΔΗΜΗΤΡΙΟΥ
-Ανθυπαστυνόμου ΤΣΟΛΑΚΗ Θεοδώρου
-Αρχιφύλακα ΑΓΟΡΑΣΤΟΥ Σαλονικιού
-Αρχιφύλακα ΖΙΩΓΑ Κωνσταντίνου
-Αρχιφύλακα ΚΟΥΚΟΥΦΙΚΗ Θεοχάρη
-Αρχιφύλακα ΚΟΥΤΡΑ Δημητρίου
-Αρχιφύλακα ΚΥΡΙΑΖΙΔΗ Ιωάννη
-Αρχιφύλακα ΜΑΛΑΝΔΡΗ Γεωργίου
-Αρχιφύλακα ΤΣΑΡΤΣΑΛΗ Δήμου</textarea>
+                    <textarea id="cfg_officers" style="height: 120px; font-size: 13px; padding: 8px; border: 1px solid #ccc; border-radius: 4px;"></textarea>
                 </div>
             </div>
-            <button onclick="saveGlobalSettings()" style="background-color: #28a745; margin-top: 10px; width: 100%;">💾 Αποθήκευση Ρυθμίσεων Υπηρεσίας</button>
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button onclick="saveGlobalSettings()" style="background-color: #28a745; flex: 2;">💾 Αποθήκευση Ρυθμίσεων Υπηρεσίας</button>
+                <button onclick="resetGlobalSettings()" style="background-color: #dc3545; flex: 1;">🔄 Επαναφορά Αρχικών</button>
+            </div>
         </div>
     </div>
 
@@ -285,7 +280,7 @@
             <div class="gdpr-warning">
                 <span style="font-size: 18px;">🛡️</span>
                 <div>
-                    Προστασία Δεδομένων: Το σύστημα αποκρύπτει αυτόματα αριθμούς, Α.Δ.Τ., τηλέφωνα και πινακίδες κυκλοφορίας. Το πρόγραμμα δεν μπορεί να μαντέψει αυτόματα τα ονόματα ή τα τοπωνύμια. Αν χρησιμοποιήσετε τα εργαλεία Τεχνητής Νοημοσύνης (AI), συστήνεται να αποφεύγεται η χρήση πραγματικών ονοματεπωνύμων στα μεγάλα πλαίσια κειμένου.
+                    Προστασία Δεδομένων: Το σύστημα αποκρύπτει αυτόματα αριθμούς, Α.Δ.Τ., τηλέφωνα και πινακίδες κυκλοφορίας. Επειδή το πρόγραμμα δεν μπορεί να αναγνωρίσει αυτόματα ονόματα ή τοπωνύμια, αν σκοπεύετε να χρησιμοποιήσετε την Τεχνητή Νοημοσύνη παρακαλούμε αποφύγετε τη χρήση πραγματικών ονοματεπωνύμων στα μεγάλα πλαίσια κειμένου.
                 </div>
             </div>
 
@@ -370,7 +365,7 @@
                 <div class="gdpr-warning" style="margin-top: 5px; margin-bottom: 10px;">
                     <span style="font-size: 18px;">🛡️</span>
                     <div>
-                        Προστασία Δεδομένων: Συστήνεται να αποφεύγεται η χρήση πραγματικών ονομάτων. Γράψτε με αρχικά (π.χ. "ο Κ.Μ. μπήκε στο σπίτι").
+                        Προστασία Δεδομένων: Αποφύγετε τη χρήση πραγματικών ονομάτων. Γράψτε με αρχικά.
                     </div>
                 </div>
                 <div style="display: flex; gap: 10px;">
@@ -592,6 +587,8 @@
     // ==========================================
     // ΓΕΝΙΚΕΣ ΡΥΘΜΙΣΕΙΣ (GLOBAL CONFIG)
     // ==========================================
+    const defaultOfficers = "Υπαστυνόμου Α΄ ΜΟΥΤΣΑΚΗ Νικολάου\nΑνθυπαστυνόμου ΖΕΥΓΟΛΑΤΑΚΟΥ Παναγιώτη\nΑνθυπαστυνόμου ΠΑΝΑΓΙΩΤΙΔΗ Παύλου\nΑνθυπαστυνόμου ΠΑΠΑΔΗΜΗΤΡΙΟΥ\nΑνθυπαστυνόμου ΤΣΟΛΑΚΗ Θεοδώρου\nΑρχιφύλακα ΑΓΟΡΑΣΤΟΥ Σαλονικιού\nΑρχιφύλακα ΖΙΩΓΑ Κωνσταντίνου\nΑρχιφύλακα ΚΟΥΚΟΥΦΙΚΗ Θεοχάρη\nΑρχιφύλακα ΚΟΥΤΡΑ Δημητρίου\nΑρχιφύλακα ΚΥΡΙΑΖΙΔΗ Ιωάννη\nΑρχιφύλακα ΜΑΛΑΝΔΡΗ Γεωργίου\nΑρχιφύλακα ΤΣΑΡΤΣΑΛΗ Δήμου";
+
     function toggleConfig() {
         let panel = document.getElementById("cfg_settings_panel");
         let arrow = document.getElementById("cfg_arrow");
@@ -614,29 +611,34 @@
         }
         alert("Οι Γενικές Ρυθμίσεις αποθηκεύτηκαν επιτυχώς! Το σύστημα προσαρμόστηκε.");
     }
+    
+    function resetGlobalSettings() {
+        localStorage.removeItem("cfg_city");
+        localStorage.removeItem("cfg_dept");
+        localStorage.removeItem("cfg_deptFull");
+        localStorage.removeItem("cfg_prosecutor");
+        localStorage.removeItem("cfg_officers");
+        localStorage.removeItem("mem_doc_anakr"); // Καθαρίζει το λάθος όνομα
+        localStorage.removeItem("mem_doc_banakr");
+        loadGlobalSettings();
+        alert("Έγινε πλήρης επαναφορά στις αρχικές ρυθμίσεις της Υπηρεσίας!");
+    }
 
     function loadGlobalSettings() {
-        if(localStorage.getItem("cfg_city")) document.getElementById("cfg_city").value = localStorage.getItem("cfg_city");
-        if(localStorage.getItem("cfg_dept")) document.getElementById("cfg_dept").value = localStorage.getItem("cfg_dept");
-        if(localStorage.getItem("cfg_deptFull")) document.getElementById("cfg_deptFull").value = localStorage.getItem("cfg_deptFull");
-        if(localStorage.getItem("cfg_prosecutor")) document.getElementById("cfg_prosecutor").value = localStorage.getItem("cfg_prosecutor");
-        
         let savedOfficers = localStorage.getItem("cfg_officers");
-        if (savedOfficers) {
+        
+        document.getElementById("cfg_city").value = localStorage.getItem("cfg_city") || "Ασπροβάλτα";
+        document.getElementById("cfg_dept").value = localStorage.getItem("cfg_dept") || "Α.Τ. Βόλβης";
+        document.getElementById("cfg_deptFull").value = localStorage.getItem("cfg_deptFull") || "Αστυνομικό Τμήμα Βόλβης Θεσσαλονίκης";
+        document.getElementById("cfg_prosecutor").value = localStorage.getItem("cfg_prosecutor") || "Εισαγγελέα Πλημμελειοδικών Θεσσαλονίκης";
+        
+        if (savedOfficers && savedOfficers.trim() !== "") {
             document.getElementById("cfg_officers").value = savedOfficers;
             populateOfficers(savedOfficers);
         } else {
-            // Native HTML defaults
-            let defaultList = [];
-            let options = document.getElementById("doc_anakr").options;
-            for(let i=0; i<options.length; i++) { defaultList.push(options[i].value); }
-            document.getElementById("cfg_officers").value = defaultList.join("\n");
+            document.getElementById("cfg_officers").value = defaultOfficers;
+            populateOfficers(defaultOfficers);
         }
-        
-        let val1 = localStorage.getItem('mem_doc_anakr');
-        let val2 = localStorage.getItem('mem_doc_banakr');
-        if (val1) document.getElementById("doc_anakr").value = val1;
-        if (val2) document.getElementById("doc_banakr").value = val2;
     }
 
     function populateOfficers(text) {
@@ -644,15 +646,16 @@
         if(officers.length === 0) return;
         
         let sel1 = document.getElementById("doc_anakr"); let sel2 = document.getElementById("doc_banakr");
-        let val1 = sel1.value; let val2 = sel2.value;
+        let val1 = localStorage.getItem('mem_doc_anakr');
+        let val2 = localStorage.getItem('mem_doc_banakr');
         
         sel1.innerHTML = ""; sel2.innerHTML = "";
         officers.forEach(o => {
             sel1.add(new Option(o, o)); sel2.add(new Option(o, o));
         });
         
-        if (val1) sel1.value = val1;
-        if (val2) sel2.value = val2;
+        if (val1 && officers.includes(val1)) sel1.value = val1;
+        if (val2 && officers.includes(val2)) sel2.value = val2;
     }
 
     // ==========================================
@@ -712,7 +715,7 @@
     window.onload = function() {
         refreshTimes();
         buildDVForm();
-        loadGlobalSettings();
+        loadGlobalSettings(); // Φορτώνει τα πάντα με ασφάλεια
 
         // Load Mem
         loadMem("doc_testimony_simple");
@@ -1233,7 +1236,7 @@
         let arrDT = (d.v("arr_street_date") ? ` την ${d.v("arr_street_date")}` : ``) + (d.v("arr_street_time") ? ` και περί ώρα ${d.v("arr_street_time")}` : ``);
         let locText = d.v("arr_loc") ? ` ${d.v("arr_loc")}` : ``;
         
-        let sig4 = `<p style="${pStyle}">&nbsp;</p><p style="${pStyle}">&nbsp;</p><table style="width: 100%; font-family: 'Times New Roman'; font-size: 12pt; text-align: center; margin-top: 0cm; margin-bottom: 0cm; padding: 0cm; background: white; color: black; border: none;" border="0"><tr><td style="width: 25%; vertical-align: top;">${d.v("gender")==='M'?"Ο Συλληφθείς":"Η Συλληφθείσα"}</td><td style="width: 25%; vertical-align: top;">Ο Συλλαβών</td><td style="width: 25%; vertical-align: top;">Ο Β΄ Ανακριτ. Υπάλλ.</td><td style="width: 25%; vertical-align: top;">Ο Ανακριτ. Υπάλληλος</td></tr></table>`;
+        let sig4 = `<table style="width: 100%; font-family: 'Times New Roman'; font-size: 12pt; text-align: center; margin-top: 20pt; margin-bottom: 0cm; padding: 0cm; background: white; color: black; border: none;" border="0"><tr><td style="width: 25%; vertical-align: top;">${d.v("gender")==='M'?"Ο Συλληφθείς":"Η Συλληφθείσα"}</td><td style="width: 25%; vertical-align: top;">Ο Συλλαβών</td><td style="width: 25%; vertical-align: top;">Ο Β΄ Ανακριτ. Υπάλλ.</td><td style="width: 25%; vertical-align: top;">Ο Ανακριτ. Υπάλληλος</td></tr></table>`;
         let header = `<p style="text-align: center; font-weight: bold; text-decoration: underline; font-family: 'Times New Roman'; font-size: 14pt; line-height: 115%; margin: 0cm 0cm 6pt 0cm; background: white; color: black;">Ε Κ Θ Ε Σ Η &nbsp;&nbsp;&nbsp; Σ Υ Λ Λ Η Ψ Η Σ</p>`;
 
         let body = `<p style="${pStyle}">Στην ${d.city} σήμερα την ${d.dateStr} και ώρα ${d.v("arr_start")} ενώπιον εμού του ${d.anakr} υπηρετούντος στο ${d.deptFull}, παρισταμένου και του ${d.banakr} της ιδίας Υπηρεσίας, που προσλήφθηκε ως Β΄ Ανακριτικός Υπάλληλος, κατοίκων ομοίως, οδηγήθηκε στο Κατάστημα της Υπηρεσίας μας, ${d.deptFull}, ${d.a_o} ${d.prof}, ${d.v("arr_officer") ? `από τον ${d.v("arr_officer")} που τ${d.a_ton} συνέλαβε` : `που συνελήφθη`}${arrDT}${locText}, ${sentence}.</p>
