@@ -11,7 +11,6 @@
         .header-box h1 { margin: 0; font-size: 26px; letter-spacing: 1px; text-transform: uppercase; }
         .header-box p { margin: 5px 0 0 0; font-size: 14px; opacity: 0.9; color: #ffeb3b; font-weight: bold;}
 
-        /* Κουτιά Ρυθμίσεων */
         .ai-settings { background: #fdfcff; border: 1px solid #ffd54f; border-left: 5px solid #ff9800; padding: 12px; border-radius: 6px; margin-bottom: 5px; }
         .global-settings { background: #f4faeb; border: 1px solid #81c784; border-left: 5px solid #4caf50; padding: 12px; border-radius: 6px; margin-bottom: 5px; }
         
@@ -58,11 +57,8 @@
         .flex-row { display: flex; gap: 10px; margin-top: 10px; }
         .info-text { font-size: 12px; color: #555; margin-bottom: 10px; line-height: 1.4; background: #eef; padding: 10px; border-radius: 4px;}
         
-        /* Πλαίσιο Ασφαλείας Δεδομένων */
         .gdpr-warning { background-color: #f8f9fa; border: 1px solid #ced4da; border-left: 4px solid #6c757d; padding: 12px; margin-top: 10px; margin-bottom: 10px; border-radius: 4px; font-size: 12px; color: #555; display: flex; align-items: center; gap: 10px;}
-        .gdpr-warning strong { color: #495057; font-size: 13px;}
 
-        /* TABS */
         .tabs { display: flex; border-bottom: 3px solid #003366; margin-top: 15px; gap: 5px; flex-wrap: wrap; }
         .tab-btn { background: #d9e2ec; color: #333; border: 1px solid #b3cce6; border-bottom: none; padding: 10px 16px; border-radius: 6px 6px 0 0; cursor: pointer; font-size: 13px; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 -2px 4px rgba(0,0,0,0.05);}
         .tab-btn:hover { background: #cce0ff; }
@@ -110,7 +106,7 @@
     
     <div class="header-box">
         <h1>⚙️ Προανακριτικη Μηχανη</h1>
-        <p>💻 V 3.3 Ultimate (AI + Full Sync)</p>
+        <p>💻 V 4.0 Ultimate (Auto-Save, Clean Docs, Stable Config)</p>
     </div>
 
     <div class="ai-settings">
@@ -139,19 +135,30 @@
 
     <div class="global-settings">
         <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="toggleConfig()">
-            <strong style="color: #2e7d32;">⚙️ Γενικές Ρυθμίσεις Υπηρεσίας & Προσωπικού (Αλλάζουν Αυτόματα Παντού)</strong>
+            <strong style="color: #2e7d32;">⚙️ Γενικές Ρυθμίσεις Υπηρεσίας & Προσωπικού (Προαιρετικό)</strong>
             <span id="cfg_arrow">⬇️ Άνοιγμα</span>
         </div>
         <div id="cfg_settings_panel" style="display: none; margin-top: 10px;">
             <p style="font-size: 12px; color: #666; margin-bottom: 10px;">Αν θελήσετε να φτιάξετε δικογραφία για άλλη Υπηρεσία/Περιοχή, απλώς αλλάξτε τα παρακάτω κουτιά. Το σύστημα θα προσαρμοστεί 100%.</p>
             <div class="grid-form" style="grid-template-columns: repeat(3, 1fr);">
-                <div class="form-group"><label>Τόπος Σύνταξης</label><input type="text" id="cfg_city"></div>
-                <div class="form-group"><label>Τμήμα Σύντομο</label><input type="text" id="cfg_dept"></div>
-                <div class="form-group"><label>Εισαγγελία</label><input type="text" id="cfg_prosecutor"></div>
-                <div class="form-group" style="grid-column: span 3;"><label>Τμήμα Πλήρες</label><input type="text" id="cfg_deptFull"></div>
+                <div class="form-group"><label>Τόπος Σύνταξης</label><input type="text" id="cfg_city" value="Ασπροβάλτα"></div>
+                <div class="form-group"><label>Τμήμα Σύντομο</label><input type="text" id="cfg_dept" value="Α.Τ. Βόλβης"></div>
+                <div class="form-group"><label>Εισαγγελία</label><input type="text" id="cfg_prosecutor" value="Εισαγγελέα Πλημμελειοδικών Θεσσαλονίκης"></div>
+                <div class="form-group" style="grid-column: span 3;"><label>Τμήμα Πλήρες</label><input type="text" id="cfg_deptFull" value="Αστυνομικό Τμήμα Βόλβης Θεσσαλονίκης"></div>
                 <div class="form-group" style="grid-column: span 3;">
                     <label style="color: #d32f2f;">Λίστα Ανακριτικών Υπαλλήλων (Γράψτε τα ονόματα ΑΥΣΤΗΡΑ σε ΓΕΝΙΚΗ πτώση! π.χ. Ανθυπαστυνόμου ΠΑΠΑΔΟΠΟΥΛΟΥ Γεωργίου)</label>
-                    <textarea id="cfg_officers" style="height: 120px; font-size: 13px; padding: 8px; border: 1px solid #ccc; border-radius: 4px;"></textarea>
+                    <textarea id="cfg_officers" style="height: 120px; font-size: 13px; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">Υπαστυνόμου Α΄ ΜΟΥΤΣΑΚΗ Νικολάου
+Ανθυπαστυνόμου ΖΕΥΓΟΛΑΤΑΚΟΥ Παναγιώτη
+Ανθυπαστυνόμου ΠΑΝΑΓΙΩΤΙΔΗ Παύλου
+Ανθυπαστυνόμου ΠΑΠΑΔΗΜΗΤΡΙΟΥ
+Ανθυπαστυνόμου ΤΣΟΛΑΚΗ Θεοδώρου
+Αρχιφύλακα ΑΓΟΡΑΣΤΟΥ Σαλονικιού
+Αρχιφύλακα ΖΙΩΓΑ Κωνσταντίνου
+Αρχιφύλακα ΚΟΥΚΟΥΦΙΚΗ Θεοχάρη
+Αρχιφύλακα ΚΟΥΤΡΑ Δημητρίου
+Αρχιφύλακα ΚΥΡΙΑΖΙΔΗ Ιωάννη
+Αρχιφύλακα ΜΑΛΑΝΔΡΗ Γεωργίου
+Αρχιφύλακα ΤΣΑΡΤΣΑΛΗ Δήμου</textarea>
                 </div>
             </div>
             <button onclick="saveGlobalSettings()" style="background-color: #28a745; margin-top: 10px; width: 100%;">💾 Αποθήκευση Ρυθμίσεων Υπηρεσίας</button>
@@ -278,7 +285,7 @@
             <div class="gdpr-warning">
                 <span style="font-size: 18px;">🛡️</span>
                 <div>
-                    <strong>Προστασία Δεδομένων:</strong> Το σύστημα αποκρύπτει αυτόματα αριθμούς, Α.Δ.Τ., τηλέφωνα και <b>πινακίδες κυκλοφορίας</b>. <i>Όμως, το πρόγραμμα δεν μπορεί να μαντέψει αυτόματα τα Ονόματα.</i> Αν σκοπεύετε να χρησιμοποιήσετε τα εργαλεία Τεχνητής Νοημοσύνης (AI), συστήνεται να αποφεύγεται η χρήση πραγματικών ονοματεπωνύμων στα μεγάλα πλαίσια. Προτιμήστε αρχικά (π.χ. αντί για "Ο Γεωργίου Πέτρος", γράψτε "Ο Γ.Π.").
+                    Προστασία Δεδομένων: Το σύστημα αποκρύπτει αυτόματα αριθμούς, Α.Δ.Τ., τηλέφωνα και πινακίδες κυκλοφορίας. Το πρόγραμμα δεν μπορεί να μαντέψει αυτόματα τα ονόματα ή τα τοπωνύμια. Αν χρησιμοποιήσετε τα εργαλεία Τεχνητής Νοημοσύνης (AI), συστήνεται να αποφεύγεται η χρήση πραγματικών ονοματεπωνύμων στα μεγάλα πλαίσια κειμένου.
                 </div>
             </div>
 
@@ -363,7 +370,7 @@
                 <div class="gdpr-warning" style="margin-top: 5px; margin-bottom: 10px;">
                     <span style="font-size: 18px;">🛡️</span>
                     <div>
-                        <strong>Προστασία Δεδομένων:</strong> Συστήνεται να αποφεύγεται η χρήση πραγματικών ονομάτων. Γράψτε με αρχικά (π.χ. "ο Κ.Μ. μπήκε στο σπίτι").
+                        Προστασία Δεδομένων: Συστήνεται να αποφεύγεται η χρήση πραγματικών ονομάτων. Γράψτε με αρχικά (π.χ. "ο Κ.Μ. μπήκε στο σπίτι").
                     </div>
                 </div>
                 <div style="display: flex; gap: 10px;">
@@ -566,10 +573,25 @@
 
 <script>
     // ==========================================
+    // ΕΝΔΟΟΙΚΟΓΕΝΕΙΑΚΕΣ ΕΡΩΤΗΣΕΙΣ
+    // ==========================================
+    const dvQuestions = [
+        "Πότε άρχισε η κακοποίηση;", "Είναι χρόνια η κατάσταση αυτή;", "Υπάρχει κλιμάκωση της συχνότητας και σοβαρότητας επιθέσεων σε βάρος σας;",
+        "Ποιο είναι το πιο επικίνδυνο τραύμα που έχετε υποστεί και πότε το υποστήκατε;", "Υπάρχουν ανήλικα τέκνα στην οικογένεια; Έχει τελεστεί κάποιο αδίκημα ενδοοικογενειακής βίας σε βάρος τους ή ενώπιον τους;",
+        "Υπάρχουν όπλα στο σπίτι (μαχαίρια, ρόπαλα ή πυροβόλα όπλα κ.α.);", "Έχει χρησιμοποιήσει ή απειλήσει να χρησιμοποιήσει ο δράστης κάποιου είδους όπλο;",
+        "Έχει αποπειραθεί ο δράστης να σας στραγγαλίσει;", "Πίνει ο δράστης αλκοόλ ή παίρνει ναρκωτικά;", "Κακοποιεί ο δράστης όταν βρίσκεται υπό την επήρεια τους;",
+        "Έχει απειλήσει ο δράστης ότι θα σας σκοτώσει ή κάποιον άλλον;", "Φοβάστε ότι δράστης μπορεί να αποπειραθεί να σας δολοφονήσει;", "Φοβάστε ότι δράστης θα αυτοκτονήσει;",
+        "Είναι ο δράστης υπερβολικά ζηλιάρης;", "Πάσχει από κατάθλιψη;", "Διακατέχεστε από τάσεις αυτοκτονίας;", "Παρακολουθεί τις κινήσεις σας, σας κατασκοπεύει, σας ελέγχει ή σας παρενοχλεί;",
+        "Έχει ποινικό μητρώο ο δράστης; Έχει τραυματίσει άλλους ανθρώπους;", "Έχετε πληροφορίες που θα βοηθούσαν στη σύλληψη του δράστη (οικία, τόπος εργασίας, μέρη που συχνάζει κ.α.);",
+        "Επιθυμείτε την εξέταση σας από Ιατροδικαστή;",
+        "Γνωρίζετε για την εφαρμογή “Κομβίο Πανικού-Panic Button”; Επιθυμείτε να σας χορηγηθεί;", "Επιθυμείτε τη δυνατότητα προσωρινής μεταφοράς και φύλαξης σας σε ασφαλή χώρο;",
+        "Σας έχει παρασχεθεί ιατροφαρμακευτική περίθαλψη; Μεταβήκατε με σταθμό του ΕΚΑΒ ή με ιδία μέσα;",
+        "Διαθέτετε κάποιο στοιχείο όπως φωτογραφίες, απειλητικά μηνύματα κ.α.; Προτείνετε κάποιον μάρτυρα;"
+    ];
+
+    // ==========================================
     // ΓΕΝΙΚΕΣ ΡΥΘΜΙΣΕΙΣ (GLOBAL CONFIG)
     // ==========================================
-    const defaultOfficers = "Υπαστυνόμου Α΄ ΜΟΥΤΣΑΚΗ Νικολάου\nΑνθυπαστυνόμου ΖΕΥΓΟΛΑΤΑΚΟΥ Παναγιώτη\nΑνθυπαστυνόμου ΠΑΝΑΓΙΩΤΙΔΗ Παύλου\nΑνθυπαστυνόμου ΠΑΠΑΔΗΜΗΤΡΙΟΥ\nΑνθυπαστυνόμου ΤΣΟΛΑΚΗ Θεοδώρου\nΑρχιφύλακα ΑΓΟΡΑΣΤΟΥ Σαλονικιού\nΑρχιφύλακα ΖΙΩΓΑ Κωνσταντίνου\nΑρχιφύλακα ΚΟΥΚΟΥΦΙΚΗ Θεοχάρη\nΑρχιφύλακα ΚΟΥΤΡΑ Δημητρίου\nΑρχιφύλακα ΚΥΡΙΑΖΙΔΗ Ιωάννη\nΑρχιφύλακα ΜΑΛΑΝΔΡΗ Γεωργίου\nΑρχιφύλακα ΤΣΑΡΤΣΑΛΗ Δήμος";
-
     function toggleConfig() {
         let panel = document.getElementById("cfg_settings_panel");
         let arrow = document.getElementById("cfg_arrow");
@@ -586,33 +608,51 @@
         localStorage.setItem("cfg_deptFull", document.getElementById("cfg_deptFull").value.trim());
         localStorage.setItem("cfg_prosecutor", document.getElementById("cfg_prosecutor").value.trim());
         localStorage.setItem("cfg_officers", document.getElementById("cfg_officers").value.trim());
-        populateOfficers();
+        
+        if(document.getElementById("cfg_officers").value.trim() !== "") {
+            populateOfficers(document.getElementById("cfg_officers").value.trim());
+        }
         alert("Οι Γενικές Ρυθμίσεις αποθηκεύτηκαν επιτυχώς! Το σύστημα προσαρμόστηκε.");
     }
 
     function loadGlobalSettings() {
-        document.getElementById("cfg_city").value = localStorage.getItem("cfg_city") !== null ? localStorage.getItem("cfg_city") : "Ασπροβάλτα";
-        document.getElementById("cfg_dept").value = localStorage.getItem("cfg_dept") !== null ? localStorage.getItem("cfg_dept") : "Α.Τ. Βόλβης";
-        document.getElementById("cfg_deptFull").value = localStorage.getItem("cfg_deptFull") !== null ? localStorage.getItem("cfg_deptFull") : "Αστυνομικό Τμήμα Βόλβης Θεσσαλονίκης";
-        document.getElementById("cfg_prosecutor").value = localStorage.getItem("cfg_prosecutor") !== null ? localStorage.getItem("cfg_prosecutor") : "Εισαγγελέα Πλημμελειοδικών Θεσσαλονίκης";
-        document.getElementById("cfg_officers").value = localStorage.getItem("cfg_officers") !== null ? localStorage.getItem("cfg_officers") : defaultOfficers;
-        populateOfficers();
+        if(localStorage.getItem("cfg_city")) document.getElementById("cfg_city").value = localStorage.getItem("cfg_city");
+        if(localStorage.getItem("cfg_dept")) document.getElementById("cfg_dept").value = localStorage.getItem("cfg_dept");
+        if(localStorage.getItem("cfg_deptFull")) document.getElementById("cfg_deptFull").value = localStorage.getItem("cfg_deptFull");
+        if(localStorage.getItem("cfg_prosecutor")) document.getElementById("cfg_prosecutor").value = localStorage.getItem("cfg_prosecutor");
+        
+        let savedOfficers = localStorage.getItem("cfg_officers");
+        if (savedOfficers) {
+            document.getElementById("cfg_officers").value = savedOfficers;
+            populateOfficers(savedOfficers);
+        } else {
+            // Native HTML defaults
+            let defaultList = [];
+            let options = document.getElementById("doc_anakr").options;
+            for(let i=0; i<options.length; i++) { defaultList.push(options[i].value); }
+            document.getElementById("cfg_officers").value = defaultList.join("\n");
+        }
+        
+        let val1 = localStorage.getItem('mem_doc_anakr');
+        let val2 = localStorage.getItem('mem_doc_banakr');
+        if (val1) document.getElementById("doc_anakr").value = val1;
+        if (val2) document.getElementById("doc_banakr").value = val2;
     }
 
-    function populateOfficers() {
-        let text = document.getElementById("cfg_officers").value;
+    function populateOfficers(text) {
         let officers = text.split("\n").map(o => o.trim()).filter(o => o !== "");
+        if(officers.length === 0) return;
+        
         let sel1 = document.getElementById("doc_anakr"); let sel2 = document.getElementById("doc_banakr");
-        let val1 = sel1.value || localStorage.getItem('mem_doc_anakr');
-        let val2 = sel2.value || localStorage.getItem('mem_doc_banakr');
+        let val1 = sel1.value; let val2 = sel2.value;
         
         sel1.innerHTML = ""; sel2.innerHTML = "";
         officers.forEach(o => {
             sel1.add(new Option(o, o)); sel2.add(new Option(o, o));
         });
         
-        if (val1 && officers.includes(val1)) sel1.value = val1;
-        if (val2 && officers.includes(val2)) sel2.value = val2;
+        if (val1) sel1.value = val1;
+        if (val2) sel2.value = val2;
     }
 
     // ==========================================
@@ -669,6 +709,60 @@
     // ==========================================
     // ΒΑΣΙΚΕΣ ΛΕΙΤΟΥΡΓΙΕΣ ΦΟΡΜΑΣ
     // ==========================================
+    window.onload = function() {
+        refreshTimes();
+        buildDVForm();
+        loadGlobalSettings();
+
+        // Load Mem
+        loadMem("doc_testimony_simple");
+        loadMem("prok_abm"); loadMem("prok_plea"); loadMem("prok_dead_date"); loadMem("prok_dead_time"); loadMem("prok_pages");
+        loadMem("ai_rough_notes"); loadMem("apologia_charge_short"); loadMem("apologia_charge_details"); loadMem("apologia_plea");
+        loadMem("arr_loc"); loadMem("arr_officer"); loadMem("arr_reason");
+        loadMem("drug_type"); loadMem("drug_weight"); loadMem("drug_packaging");
+        
+        if (localStorage.getItem("gemini_api_key")) {
+            document.getElementById("gemini_api_key").value = localStorage.getItem("gemini_api_key");
+            if(localStorage.getItem("gemini_model")) {
+                document.getElementById("model_selection_div").style.display = "flex";
+                let opt = document.createElement("option");
+                opt.value = localStorage.getItem("gemini_model"); opt.text = localStorage.getItem("gemini_model") + " (Αποθηκευμένο)";
+                document.getElementById("gemini_model").appendChild(opt);
+                document.getElementById("key_status").style.display = "inline";
+            }
+        }
+    };
+
+    function buildDVForm() {
+        const container = document.getElementById("dv_mode_container");
+        let html = `
+        <div class="dv-item large">
+            <div style="display: flex; gap: 5px; margin-bottom: 5px;">
+                <label style="font-size: 14px; color: #0056b3; display: block; font-weight: bold; flex: 1;">ΕΡΩΤΗΣΗ: Τι προσήλθατε να καταθέσετε στην Υπηρεσία μας; *</label>
+                <button class="btn-ai" style="width: auto; padding: 4px 8px; font-size: 11px;" id="btn_ref_dv" onclick="refineTextAI('dv_q_main', 'spin_ref_dv', 'btn_ref_dv')"><span id="spin_ref_dv" class="spinner" style="display:none;"></span>✨ Διόρθωση AI</button>
+                <button class="btn-undo" onclick="undoText('dv_q_main')">↩️ Αναίρεση</button>
+            </div>
+            <textarea id="dv_q_main" placeholder="Περιγράψτε το αρχικό ιστορικό..." style="height: 100px;" oninput="saveMem(this.id)"></textarea>
+            
+            <div style="margin-top: 10px; margin-bottom: 20px;">
+                <button class="btn-ai" id="btn_check_rule_dv" onclick="checkGoldenRule('dv_q_main', 'ai_golden_rule_result_dv', 'spinner_rule_dv', 'btn_check_rule_dv')">
+                    <span id="spinner_rule_dv" class="spinner" style="display: none;"></span>✨ AI Έλεγχος "Χρυσού Κανόνα"
+                </button>
+                <div id="ai_golden_rule_result_dv" class="ai-result"></div>
+            </div>
+        </div>`;
+        
+        dvQuestions.forEach((q, index) => {
+            html += `<div class="dv-item"><label>ΕΡΩΤΗΣΗ: ${q}</label><textarea id="dv_q_${index}" oninput="saveMem(this.id)"></textarea></div>`;
+        });
+        html += `<div class="dv-item"><label>ΕΡΩΤΗΣΗ: Έχετε να προσθέσετε κάτι άλλο;</label><textarea id="dv_q_last" oninput="saveMem(this.id)">Επιθυμώ την ποινική δίωξη του δράστη...</textarea></div>`;
+        container.innerHTML = html;
+
+        loadMem("dv_q_main");
+        dvQuestions.forEach((q, i) => loadMem("dv_q_" + i));
+        loadMem("dv_q_last");
+    }
+
     function refreshTimes() {
         const days = ['Κυριακή', 'Δευτέρα', 'Τρίτη', 'Τετάρτη', 'Πέμπτη', 'Παρασκευή', 'Σάββατο'];
         const months = ['Ιανουαρίου', 'Φεβρουαρίου', 'Μαρτίου', 'Απριλίου', 'Μαΐου', 'Ιουνίου', 'Ιουλίου', 'Αυγούστου', 'Σεπτεμβρίου', 'Οκτωβρίου', 'Νοεμβρίου', 'Δεκεμβρίου'];
@@ -789,7 +883,7 @@
     }
 
     // ==========================================
-    // AI LOGIC (GEMINI API) & ΑΣΦΑΛΕΙΑ
+    // AI LOGIC (GEMINI API)
     // ==========================================
     function sanitizeForAI(text) {
         if(!text) return "";
@@ -935,7 +1029,6 @@
     // ==========================================
     // ΛΟΓΙΚΗ ΕΞΑΓΩΓΗΣ ΣΕ WORD (ΟΛΑ ΤΑ ΕΓΓΡΑΦΑ)
     // ==========================================
-    // Κανόνας για καθαρά έγγραφα: Χρησιμοποιούμε margin-bottom αντί για άδεια <p>
     const pStyle = "text-align: justify; font-family: 'Times New Roman'; font-size: 12pt; line-height: 115%; margin: 0cm 0cm 4pt 0cm; padding: 0cm; background: white; color: black;";
 
     function formatTextToParagraphs(text) {
@@ -990,10 +1083,10 @@
         
         return {
             v: v, anakr: v("doc_anakr"), banakr: v("doc_banakr"),
-            city: c_city !== "" ? c_city : "[Πόλη]",
-            dept: c_dept !== "" ? c_dept : "[Τμήμα]",
-            deptFull: c_deptFull !== "" ? c_deptFull : "[Πλήρης Ονομασία Τμήματος]",
-            prosecutor: c_prosecutor !== "" ? c_prosecutor : "[Εισαγγελέας]",
+            city: c_city !== "" ? c_city : "Ασπροβάλτα",
+            dept: c_dept !== "" ? c_dept : "Α.Τ. Βόλβης",
+            deptFull: c_deptFull !== "" ? c_deptFull : "Αστυνομικό Τμήμα Βόλβης Θεσσαλονίκης",
+            prosecutor: c_prosecutor !== "" ? c_prosecutor : "Εισαγγελέα Πλημμελειοδικών Θεσσαλονίκης",
             a_o: g === 'M' ? "ο" : "η", a_os: g === 'M' ? "σημειούμενος κατηγορούμενος" : "σημειούμενη κατηγορούμενη",
             a_tou: g === 'M' ? "του" : "της", a_ton: g === 'M' ? "τον" : "την",
             a_auton: g === 'M' ? "αυτόν" : "αυτήν", a_exet: g === 'M' ? "εξεταζόμενος" : "εξεταζόμενη",
@@ -1192,7 +1285,7 @@
         let body = `<p style="${pStyle}">Στην ${d.city}, σήμερα την ${d.dateStr} και ώρα ${d.v("apo_start")} ενώπιον εμού του ${d.anakr} του ${d.dept}, παριστάμενου και του ${d.banakr} της ιδίας Υπηρεσίας, εξετάζεται ${d.a_o} κατωτέρω ${d.a_os}.</p>
         <p style="${pStyle}"><b>ΕΡΩΤΗΣΗ:</b> Πώς ονομάζεσαι κ.λ.π.; <b>ΑΠΟΚΡΙΣΗ:</b> ${d.prof}.</p>
         <p style="${pStyle}">Ενταύθα γνωρίσαμε στ${d.a_ton} εξεταζόμεν${d.v('gender')==='M'?'ο':'η'} ότι κατηγορείται για ${fullCharge}</p>
-        <p style="${pStyle}">Στη συνέχεια αφού ανακοινώσαμε στ${d.a_ton} εξεταζόμεν${d.v('gender')==='M'?'ο':'η'} το περιεχόμενο των εγγράφων της ανάκρισης, εξηγήσαμε εκ νέου με σαφήνεια σ’ ${d.a_auton}, σύμφωνα με τα άρθρα 95 και 105 ή 106 του Κώδικα Ποινικής Δικονομίας, όλα τα δικαιώματά ${d.a_tou} που προβλέπονται από τα άρθρα 91, 95, 96, 97, 98, 100, 101, 104 και 273 του Κώδικα Ποινικής Δικονομίας και ειδικότερα ότι δικαιούται: να παρίσταται μετά συνηγόρου, μετά του οποίου δεν μπορεί να απαγορευτεί η απολύτως απόρρητη επικοινωνία ${d.a_tou} σε καμιά περίπτωση, να μελετήσει ${d.v('gender')==='M'?'ο ίδιος':'η ίδια'} ή ο συνήγορός ${d.a_tou} τα έγγραφα της ανάκρισης και του κατηγορητηρίου (πραγματικών περιστατικών - κατηγορίας), να τ${d.a_tou} χορηγηθούν αντίγραφα αυτών με δική ${d.a_tou} δαπάνη και μετά από γραπτή αίτησή ${d.a_tou} να ζητήσει προθεσμία μέχρι 48 ωρών, προ της παρέλευσης της οποίας δεν υποχρεούται σε απολογία και ότι δύναται να δοθεί παράταση της προθεσμίας αυτής με αίτησή ${d.a_tou}, να αρνηθεί να απαντήσει (δικαίωμα σιωπής και μη αυτοενεχοποίησης) και να παραδώσει την απολογία ${d.a_tou} γραπτή.</p>
+        <p style="${pStyle}">Στη συνέχεια αφού ανακοινώσαμε στ${d.a_ton} εξεταζόμεν${d.v('gender')==='M'?'ο':'η'} το περιεχόμενο των εγγράφων της ανάκρισης, εξηγήσαμε εκ νέου με σαφήνεια σ’ ${d.a_auton}, σύμφωνα με τα άρθρα 95 και 105 ή 106 του Κώδικα Ποινικής Δικονομίας, όλα τα δικαιώματά ${d.a_tou} που προβλέπονται από τα άρθρα 91, 95, 96, 97, 98, 100, 101, 104 και 273 του Κώδικα Ποινικής Δικονομίας και ειδικότερα ότι δικαιούται: να παρίσταται μετά συνηγόρου, μετά του οποίου δεν μπορεί να απαγορευτεί η απολύτως απόρρητη επικοινωνία ${d.a_tou} σε καμιά περίπτωση, να μελετήσει ${d.v('gender')==='M'?'ο ίδιος':'η ίδια'} ή ο συνήγορός ${d.a_tou} τα έγγραφα της ανάκρισης και του κατηγορητηρίου, να τ${d.a_tou} χορηγηθούν αντίγραφα αυτών με δική ${d.a_tou} δαπάνη και μετά από γραπτή αίτησή ${d.a_tou} να ζητήσει προθεσμία μέχρι 48 ωρών, προ της παρέλευσης της οποίας δεν υποχρεούται σε απολογία και ότι δύναται να δοθεί παράταση της προθεσμίας αυτής με αίτησή ${d.a_tou}, να αρνηθεί να απαντήσει (δικαίωμα σιωπής και μη αυτοενεχοποίησης) και να παραδώσει την απολογία ${d.a_tou} γραπτή.</p>
         <p style="${pStyle}"><b>ΕΡΩΤΗΣΗ:</b> Επιθυμείτε να κάνετε χρήση των δικαιωμάτων που σας γνωστοποιήθηκαν; <b>ΑΠΟΚΡΙΣΗ:</b> ${d.v("apologia_rights").replace(/[\n\r]+/g, " ")}</p>
         <p style="${pStyle}">Ύστερα από τα ανωτέρω προβήκαμε στην λήψη της απολογίας ${d.a_tou}. Για πιστοποίηση συντάχθηκε η παρούσα έκθεση, η οποία αφού αναγνώσθηκε και βεβαιώθηκε υπογράφεται ως ακολούθως:</p>
         ${sigBlock(d.a_sign, "Ο Β’ Ανακριτικός Υπάλληλος", "Ο Ανακριτικός Υπάλληλος")}
